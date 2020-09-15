@@ -1,4 +1,4 @@
-package com.example.adm_school;
+package com.example.adm_school.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.adm_school.R;
+
 public class LoginActivity extends AppCompatActivity {
     TextView mTextViewRegister;
 
@@ -14,6 +16,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
         mTextViewRegister = findViewById(R.id.textViewRegister);
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override

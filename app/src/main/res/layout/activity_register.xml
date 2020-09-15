@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".RegisterActivity">
+    tools:context=".Views.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,6 +65,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/nombre"
                     android:hint="Nombre"
                     android:inputType="textPersonName"/>
 
@@ -92,6 +93,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/correo"
                     android:hint="Correo Electronico"
                     android:inputType="textEmailAddress"/>
 
@@ -120,6 +122,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/password"
                     android:hint="Contraseña"
                     android:inputType="textPassword"/>
 
@@ -147,23 +150,26 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/telefono"
                     android:hint="Telefono"
                     android:inputType="number"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
-
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="28dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
-            />
+            android:layout_marginRight="30dp" />
+
+
+
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/btnRegistro"
         android:text="REGISTRARSE"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorAccent"
