@@ -46,6 +46,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/correo"
                     android:hint="Correo Electronico"
                     android:inputType="textEmailAddress"/>
 
@@ -75,6 +76,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/password"
                     android:hint="Contraseña"
                     android:inputType="textPassword"/>
 
@@ -84,6 +86,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/btnLogin"
             android:text="INICIAR SESION"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#08AE9E"

@@ -7,6 +7,8 @@ public class RegisterRequest {
     private String telefono;
     private String rol;
 
+
+
     public String getNombre() {
         return nombre;
     }

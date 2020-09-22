@@ -30,11 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password;
     private EditText telefono;
 
-
-
     private Button btnRegistro;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
