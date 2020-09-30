@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recyclerview_profesor">
+    tools:context=".Views.recyclerview_profesor">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="628dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.github.florent37.shapeofview.shapes.DiagonalView
@@ -48,22 +48,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="bottom"
             android:orientation="horizontal"
             android:theme="@style/EditTextWhite">
 
             <Button
                 android:layout_width="210dp"
                 android:layout_height="60dp"
-                android:layout_marginHorizontal="3dp"
                 android:background="@color/colorAccent"
                 android:text="Tomar Asistencia" />
 
             <Button
                 android:layout_width="210dp"
                 android:layout_height="60dp"
-                android:background="@color/colorAccent"
+                android:background="#a6a6a4"
 
                 android:text="Asignar Notas" />
         </LinearLayout>

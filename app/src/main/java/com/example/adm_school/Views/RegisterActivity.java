@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.adm_school.Api.ApiClientent;
+import com.example.adm_school.Api.ApiClient;
 import com.example.adm_school.Models.RegisterRequest;
 import com.example.adm_school.Models.RegisterResponse;
 import com.example.adm_school.R;
@@ -45,7 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegistro = findViewById(R.id.btnRegistro);
 
 
-        String [] opciones = {"CORDINADOR", "DIRECTOR", "PROFESOR", "ALUMNO"};
+        String [] opciones = {"COORDINADOR", "DIRECTOR", "PROFESOR", "ALUMNO"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opciones);
         rol.setAdapter(adapter);
 

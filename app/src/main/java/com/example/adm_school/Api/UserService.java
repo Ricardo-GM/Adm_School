@@ -4,9 +4,13 @@ import com.example.adm_school.Models.LoginRequest;
 import com.example.adm_school.Models.LoginResponse;
 import com.example.adm_school.Models.RegisterResponse;
 import com.example.adm_school.Models.RegisterRequest;
+import com.example.adm_school.Models.Salon;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface UserService {
@@ -16,4 +20,7 @@ public interface UserService {
 
     @POST("Validar_usuario2.php")
     Call<LoginResponse> userLogin(@Body LoginRequest loginRequest);
+
+    @GET("Obtener_salones.php")
+    Call<List<Salon>> listSalon();
 }

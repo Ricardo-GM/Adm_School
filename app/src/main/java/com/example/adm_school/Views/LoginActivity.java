@@ -71,11 +71,22 @@ public class LoginActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     final LoginResponse loginResponse = response.body();
                     if(loginResponse.getEstado().equals("1")){
-                        Toast.makeText(LoginActivity.this, "Acceso Autorizado!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Acceso Autorizado! Bienvenido "+ucFirst(loginResponse.getRol())+"!", Toast.LENGTH_LONG).show();
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startActivity(new Intent(LoginActivity.this, Menu_Coordinador.class));
+                                switch(loginResponse.getRol()){
+                                    case "COORDINADOR":
+                                        startActivity(new Intent(LoginActivity.this, recycler_coordinador.class));
+                                        break;
+                                    case  "PROFESOR":
+                                        startActivity(new Intent(LoginActivity.this, recyclerview_profesor.class));
+                                        break;
+                                    case "ALUMNO":
+                                        startActivity(new Intent(LoginActivity.this, recyclerview_alumno.class));
+                                        break;
+
+                                }
                             }
                         },700);
                     }else{
@@ -91,6 +102,14 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public static String ucFirst(String str){
+        if(str == null || str.isEmpty()) {
+            return " ";
+        }else{
+            return str.substring(0,1).toUpperCase() + str.substring(1).toLowerCase();
+        }
     }
 
 

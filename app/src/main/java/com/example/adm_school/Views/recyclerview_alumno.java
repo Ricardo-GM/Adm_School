@@ -1,14 +1,16 @@
-package com.example.adm_school;
+package com.example.adm_school.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class recyclerview_cordinador extends AppCompatActivity {
+import com.example.adm_school.R;
+
+public class recyclerview_alumno extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recyclerview_cordinador);
+        setContentView(R.layout.activity_recyclerview_alumno);
     }
 }

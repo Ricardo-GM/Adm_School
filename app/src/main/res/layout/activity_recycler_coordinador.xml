@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recyclerview_cordinador">
+    android:orientation="vertical"
+    tools:context=".Views.recycler_coordinador">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="628dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.github.florent37.shapeofview.shapes.DiagonalView
@@ -30,46 +31,44 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="30dp"
                 android:src="@drawable/trabajo_en_equipo" />
-
-
         </com.github.florent37.shapeofview.shapes.DiagonalView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_marginLeft="180dp"
-            android:text="Hola Cordinador "
+            android:layout_marginTop="5dp"
+            android:text="Hola Coordinador "
             android:textSize="20sp"
             android:textStyle="bold" />
 
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle_salones"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="342dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:theme="@style/EditTextWhite">
-
-            <Button
-                android:layout_width="210dp"
-                android:layout_height="60dp"
-                android:layout_marginHorizontal="3dp"
-                android:background="@color/colorAccent"
-                android:text="Crear Salon" />
-
-            <Button
-                android:layout_width="210dp"
-                android:layout_height="60dp"
-                android:background="@color/colorAccent"
-
-                android:text="Administrar Cursos" />
-        </LinearLayout>
-    </LinearLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
 
 
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="27dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_input_add" />
+</RelativeLayout>
 
