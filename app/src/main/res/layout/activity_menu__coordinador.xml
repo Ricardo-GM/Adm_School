@@ -57,7 +57,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_usuario" />
+                android:src="@drawable/ic_aula" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -84,7 +84,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_usuario" />
+                android:src="@drawable/ic_alumnos" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -94,7 +94,9 @@
                     android:id="@+id/cantidadMaxima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Cantidad Máxima" />
+                    android:hint="Cantidad Máxima"
+                    android:inputType="number"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -111,7 +113,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/ic_usuario" />
+                android:src="@drawable/ic_pizarra" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
