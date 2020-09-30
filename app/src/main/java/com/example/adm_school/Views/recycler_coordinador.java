@@ -5,13 +5,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.adm_school.Adapter.SalonAdapter;
 import com.example.adm_school.Api.ApiClient;
 import com.example.adm_school.Models.Salon;
 import com.example.adm_school.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -24,11 +29,22 @@ public class recycler_coordinador extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private List<Salon> salones;
+    private FloatingActionButton btnAddSalon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_coordinador);
+
+        btnAddSalon = findViewById(R.id.addSalon);
+
+        btnAddSalon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(recycler_coordinador.this, Menu_Coordinador.class));
+            }
+        });
+
 
         Call<List<Salon>> call = ApiClient.getUserService().listSalon();
         call.enqueue(new Callback<List<Salon>>() {
@@ -42,6 +58,8 @@ public class recycler_coordinador extends AppCompatActivity {
                 Toast.makeText(recycler_coordinador.this, "Falló la conexión!", Toast.LENGTH_LONG).show();
             }
         });
+
+
     }
 
     private void generateList(List<Salon> lista){
