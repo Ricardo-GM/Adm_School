@@ -5,6 +5,8 @@ import com.example.adm_school.Models.LoginResponse;
 import com.example.adm_school.Models.RegisterResponse;
 import com.example.adm_school.Models.RegisterRequest;
 import com.example.adm_school.Models.Salon;
+import com.example.adm_school.Models.SalonRequest;
+import com.example.adm_school.Models.SalonResponse;
 
 import java.util.List;
 
@@ -23,4 +25,7 @@ public interface UserService {
 
     @GET("Obtener_salones.php")
     Call<List<Salon>> listSalon();
+
+    @POST("Insertar_salon.php")
+    Call<SalonResponse> createSalon(@Body SalonRequest salonRequest);
 }
