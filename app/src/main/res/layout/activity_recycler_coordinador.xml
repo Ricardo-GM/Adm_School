@@ -58,8 +58,6 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addSalon"
         android:layout_width="wrap_content"
@@ -69,6 +67,7 @@
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="27dp"
         android:clickable="true"
-        android:src="@android:drawable/ic_input_add" />
+        android:src="@drawable/ic_anadir"
+        app:maxImageSize="56dp" />
 </RelativeLayout>
 
