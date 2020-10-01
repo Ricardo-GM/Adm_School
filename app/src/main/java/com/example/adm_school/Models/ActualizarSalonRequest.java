@@ -1,24 +1,16 @@
 package com.example.adm_school.Models;
 
-public class Salon {
+public class ActualizarSalonRequest {
     private int id_salon;
     private String nombreSalon;
     private int cantidadMaxima;
     private String estado;
 
-
-    public Salon(int id_salon, String nombreSalon, int cantidadMaxima, String estado) {
-        this.id_salon = id_salon;
-        this.nombreSalon = nombreSalon;
-        this.cantidadMaxima = cantidadMaxima;
-        this.estado = estado;
-    }
-
-    public int getId() {
+    public int getId_salon() {
         return id_salon;
     }
 
-    public void setId(int id_salon) {
+    public void setId_salon(int id_salon) {
         this.id_salon = id_salon;
     }
 

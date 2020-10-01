@@ -1,5 +1,7 @@
 package com.example.adm_school.Api;
 
+import com.example.adm_school.Models.ActualizarSalonRequest;
+import com.example.adm_school.Models.EliminarSalonRequest;
 import com.example.adm_school.Models.LoginRequest;
 import com.example.adm_school.Models.LoginResponse;
 import com.example.adm_school.Models.RegisterResponse;
@@ -28,4 +30,10 @@ public interface UserService {
 
     @POST("Insertar_salon.php")
     Call<SalonResponse> createSalon(@Body SalonRequest salonRequest);
+
+    @POST("Eliminar_salon.php")
+    Call<SalonResponse> deleteSalon(@Body EliminarSalonRequest eliminarSalonRequest);
+
+    @POST("Actualizar_salon.php")
+    Call<SalonResponse> updateSalon(@Body ActualizarSalonRequest actualizarSalonRequest);
 }

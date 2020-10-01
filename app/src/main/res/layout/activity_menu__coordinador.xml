@@ -135,7 +135,7 @@
         android:layout_margin="20dp"
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorAccent"
-        android:text="Crear Salón"
+        android:text="Guardar Salón"
         android:textColor="@color/colorWhite" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

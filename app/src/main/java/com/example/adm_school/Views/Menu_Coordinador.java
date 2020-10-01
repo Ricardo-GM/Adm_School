@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.adm_school.Api.ApiClient;
+import com.example.adm_school.Models.ActualizarSalonRequest;
+import com.example.adm_school.Models.Salon;
 import com.example.adm_school.Models.SalonRequest;
 import com.example.adm_school.Models.SalonResponse;
 import com.example.adm_school.R;
@@ -37,13 +39,38 @@ public class Menu_Coordinador extends AppCompatActivity {
         estadoSalon = findViewById(R.id.estadoSalon);
         btnCrearSalon = findViewById(R.id.btnCrearSalon);
 
+        final int actIdSalon = getIntent().getIntExtra("id_salon", 0);
+        final String actNombreSalon = getIntent().getStringExtra("nombreSalon");
+        final int actCantidadMaxima = getIntent().getIntExtra("cantidadMaxima", 0);
+        final String estado = getIntent().getStringExtra("estado");
+
+        if( actNombreSalon != ""){
+            nombreSalon.setText(actNombreSalon);
+        }
+
+        if(actCantidadMaxima != 0){
+            cantidadSalon.setText(String.valueOf(actCantidadMaxima));
+        }
+
+        if(estado != ""){
+            estadoSalon.setText(estado);
+        }
+
+
+
+
+
         btnCrearSalon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(nombreSalon.getText()) || TextUtils.isEmpty(cantidadSalon.getText()) || TextUtils.isEmpty(estadoSalon.getText())){
                     Toast.makeText(Menu_Coordinador.this, "Debe completar todos los campos", Toast.LENGTH_LONG).show();
                 }else{
-                    addSalon();
+                    if(actIdSalon != 0){
+                        actualizarSalon(actIdSalon);
+                    }else{
+                        addSalon();
+                    }
                 }
             }
         });
@@ -71,6 +98,42 @@ public class Menu_Coordinador extends AppCompatActivity {
                         }, 400);
                     }else{
                         Toast.makeText(Menu_Coordinador.this, "La creación falló!", Toast.LENGTH_LONG).show();
+                    }
+                }else{
+                    Toast.makeText(Menu_Coordinador.this, "El servidor no responde correctamente!", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SalonResponse> call, Throwable t) {
+                Toast.makeText(Menu_Coordinador.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void actualizarSalon(int id_salon){
+        ActualizarSalonRequest actualizarSalonRequest = new ActualizarSalonRequest();
+        actualizarSalonRequest.setId_salon(id_salon);
+        actualizarSalonRequest.setNombreSalon(nombreSalon.getText().toString());
+        actualizarSalonRequest.setCantidadMaxima(Integer.parseInt(cantidadSalon.getText().toString()));
+        actualizarSalonRequest.setEstado(estadoSalon.getText().toString());
+
+        Call<SalonResponse> salonResponseCall = ApiClient.getUserService().updateSalon(actualizarSalonRequest);
+        salonResponseCall.enqueue(new Callback<SalonResponse>() {
+            @Override
+            public void onResponse(Call<SalonResponse> call, Response<SalonResponse> response) {
+                if(response.isSuccessful()){
+                    final SalonResponse salonResponse = response.body();
+                    if(salonResponse.getEstado().equals("1")){
+                        Toast.makeText(Menu_Coordinador.this, "Salón Actualizado!", Toast.LENGTH_LONG).show();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(new Intent(Menu_Coordinador.this, recycler_coordinador.class));
+                            }
+                        },400);
+                    }else{
+                        Toast.makeText(Menu_Coordinador.this, "La actualización falló!", Toast.LENGTH_LONG).show();
                     }
                 }else{
                     Toast.makeText(Menu_Coordinador.this, "El servidor no responde correctamente!", Toast.LENGTH_LONG).show();
