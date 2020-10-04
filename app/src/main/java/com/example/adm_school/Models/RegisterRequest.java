@@ -1,13 +1,13 @@
 package com.example.adm_school.Models;
 
+import java.util.Date;
+
 public class RegisterRequest {
     private String nombre;
     private String correo;
     private String password;
     private String telefono;
-    private String rol;
-
-
+    private String direccion;
 
     public String getNombre() {
         return nombre;
@@ -41,11 +41,11 @@ public class RegisterRequest {
         this.telefono = telefono;
     }
 
-    public String getId_rol() {
-        return rol;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setId_rol(String id_rol) {
-        this.rol = id_rol;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

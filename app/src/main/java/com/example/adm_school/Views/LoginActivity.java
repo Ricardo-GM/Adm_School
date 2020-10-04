@@ -85,6 +85,9 @@ public class LoginActivity extends AppCompatActivity {
                                     case "ALUMNO":
                                         startActivity(new Intent(LoginActivity.this, recyclerview_alumno.class));
                                         break;
+                                    case "SN":
+                                        startActivity(new Intent(LoginActivity.this, sin_rol.class));
+                                        break;
 
                                 }
                             }

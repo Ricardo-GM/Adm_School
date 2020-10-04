@@ -19,16 +19,18 @@ import com.example.adm_school.Models.RegisterResponse;
 import com.example.adm_school.R;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.w3c.dom.Text;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-    private Spinner rol;
     private EditText nombre;
     private EditText correo;
     private EditText password;
     private EditText telefono;
+    private EditText direccion;
 
     private Button btnRegistro;
 
@@ -41,22 +43,15 @@ public class RegisterActivity extends AppCompatActivity {
         correo = findViewById(R.id.correo);
         password = findViewById(R.id.password);
         telefono = findViewById(R.id.telefono);
-        rol = (Spinner) findViewById(R.id.spinner);
+        direccion = findViewById(R.id.direccion);
+
         btnRegistro = findViewById(R.id.btnRegistro);
-
-
-        String [] opciones = {"COORDINADOR", "DIRECTOR", "PROFESOR", "ALUMNO"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,opciones);
-        rol.setAdapter(adapter);
-
-
-
 
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(nombre.getText().toString()) || TextUtils.isEmpty(correo.getText().toString())
-                        || TextUtils.isEmpty(password.getText().toString())|| TextUtils.isEmpty(telefono.getText().toString())){
+                        || TextUtils.isEmpty(password.getText().toString())|| TextUtils.isEmpty(telefono.getText().toString()) || TextUtils.isEmpty(direccion.getText().toString())){
 
                     Toast.makeText(RegisterActivity.this, "Debe completar todos los campos", Toast.LENGTH_LONG).show();
                 }else{
@@ -73,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
         registerRequest.setCorreo(correo.getText().toString());
         registerRequest.setPassword(password.getText().toString());
         registerRequest.setTelefono(telefono.getText().toString());
-        registerRequest.setId_rol(rol.getSelectedItem().toString());
+        registerRequest.setDireccion(direccion.getText().toString());
 
         Call<RegisterResponse> registerResponseCall = ApiClient.getUserService().createUser(registerRequest);
         registerResponseCall.enqueue(new Callback<RegisterResponse>() {
