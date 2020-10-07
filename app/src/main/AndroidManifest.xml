@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.sin_rol"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            ></activity>
+        <activity android:name=".menu_cordinador"></activity>
+        <activity
+            android:name=".Views.sin_rol"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Views.CardItem"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

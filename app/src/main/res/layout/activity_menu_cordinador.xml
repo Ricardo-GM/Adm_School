@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Views.recycler_coordinador">
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.github.florent37.shapeofview.shapes.DiagonalView
+            android:layout_width="427dp"
+            android:layout_height="187dp"
+            android:elevation="4dp"
+            app:shape_diagonal_angle="10"
+            app:shape_diagonal_direction="left"
+            app:shape_diagonal_position="bottom">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent">
+
+            </View>
+
+            <ImageView
+                android:layout_width="127dp"
+                android:layout_height="102dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="30dp"
+                android:src="@drawable/trabajo_en_equipo" />
+        </com.github.florent37.shapeofview.shapes.DiagonalView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="5dp"
+            android:text="Hola Coordinador "
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="426dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/clic_registrar_usuarios"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="27dp"
+                    android:layout_marginVertical="10dp"
+                    android:elevation="10dp"
+                    app:shape_roundRect_bottomLeftRadius="10dp"
+                    app:shape_roundRect_bottomRightRadius="10dp"
+                    app:shape_roundRect_topLeftRadius="10dp"
+                    app:shape_roundRect_topRightRadius="10dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent">
+                    </View>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="87dp"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/users" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginVertical="140dp"
+                        android:text="GESTION USUARIOS"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/clic_registrar_salones"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:elevation="10dp"
+                    app:shape_roundRect_bottomLeftRadius="10dp"
+                    app:shape_roundRect_bottomRightRadius="10dp"
+                    app:shape_roundRect_topLeftRadius="10dp"
+                    app:shape_roundRect_topRightRadius="10dp"
+                    >
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent">
+                    </View>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="87dp"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/managments_salones" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginVertical="140dp"
+                        android:text="GESTION SALONES"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="426dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/clic_registrar_clases"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="27dp"
+                    android:layout_marginVertical="10dp"
+                    android:elevation="10dp"
+                    app:shape_roundRect_bottomLeftRadius="10dp"
+                    app:shape_roundRect_bottomRightRadius="10dp"
+                    app:shape_roundRect_topLeftRadius="10dp"
+                    app:shape_roundRect_topRightRadius="10dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent">
+                    </View>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="87dp"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/lesson" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginVertical="140dp"
+                        android:text="GESTION CLASE"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+                <com.github.florent37.shapeofview.shapes.RoundRectView
+                    android:id="@+id/clic_registrar_curso"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:elevation="10dp"
+                    app:shape_roundRect_bottomLeftRadius="10dp"
+                    app:shape_roundRect_bottomRightRadius="10dp"
+                    app:shape_roundRect_topLeftRadius="10dp"
+                    app:shape_roundRect_topRightRadius="10dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorAccent">
+                    </View>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="87dp"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginVertical="10dp"
+                        android:src="@drawable/courses" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_marginVertical="140dp"
+                        android:text="GESTION CURSO"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold" />
+
+                </com.github.florent37.shapeofview.shapes.RoundRectView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>
