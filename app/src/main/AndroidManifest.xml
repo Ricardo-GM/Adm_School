@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".menu_cordinador"></activity>
+        <activity android:name=".Views.menu_cordinador"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".Views.sin_rol"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -21,7 +22,9 @@
         <activity
             android:name=".Views.recycler_coordinador"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Views.recyclerview_profesor" />
+        <activity android:name=".Views.recyclerview_profesor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            />
         <activity
             android:name=".Views.recyclerview_alumno"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
