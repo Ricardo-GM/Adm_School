@@ -77,7 +77,8 @@ public class LoginActivity extends AppCompatActivity {
                             public void run() {
                                 switch(loginResponse.getRol()){
                                     case "COORDINADOR":
-                                        startActivity(new Intent(LoginActivity.this, recycler_coordinador.class));
+                                        //startActivity(new Intent(LoginActivity.this, recycler_coordinador.class));
+                                        startActivity(new Intent(LoginActivity.this, menu_principal_coordinador.class));
                                         break;
                                     case  "PROFESOR":
                                         startActivity(new Intent(LoginActivity.this, recyclerview_profesor.class));

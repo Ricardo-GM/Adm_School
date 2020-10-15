@@ -9,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.adm_school.Adapter.SalonAdapter;
@@ -29,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class recycler_coordinador extends AppCompatActivity {
+public class recycler_salones extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -39,14 +36,14 @@ public class recycler_coordinador extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_coordinador);
+        setContentView(R.layout.activity_recycler_salones);
 
         btnAddSalon = findViewById(R.id.addSalon);
 
         btnAddSalon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(recycler_coordinador.this, Menu_Coordinador.class));
+                startActivity(new Intent(recycler_salones.this, Info_Salon.class));
             }
         });
 
@@ -60,7 +57,7 @@ public class recycler_coordinador extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Salon>> call, Throwable t) {
-                Toast.makeText(recycler_coordinador.this, "Falló la conexión!", Toast.LENGTH_LONG).show();
+                Toast.makeText(recycler_salones.this, "Falló la conexión!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -76,9 +73,9 @@ public class recycler_coordinador extends AppCompatActivity {
         mAdapter = new SalonAdapter(salones, R.layout.card_item, new SalonAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Salon salon, int position) {
-                Toast.makeText(recycler_coordinador.this, String.valueOf(salon.getId()) , Toast.LENGTH_LONG).show();
+                Toast.makeText(recycler_salones.this, String.valueOf(salon.getId()) , Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(recycler_coordinador.this, Menu_Coordinador.class);
+                Intent intent = new Intent(recycler_salones.this, Info_Salon.class);
                 intent.putExtra("id_salon", salon.getId());
                 intent.putExtra("nombreSalon", salon.getNombreSalon());
                 intent.putExtra("cantidadMaxima", salon.getCantidadMaxima());
@@ -88,7 +85,7 @@ public class recycler_coordinador extends AppCompatActivity {
         }, new SalonAdapter.OnLongItemClickListener() {
             @Override
             public void onLongItemClick(final Salon salon, int position) {
-                AlertDialog.Builder alerta = new AlertDialog.Builder(recycler_coordinador.this);
+                AlertDialog.Builder alerta = new AlertDialog.Builder(recycler_salones.this);
                 alerta.setMessage("Desea Eliminar este salón?")
                         .setCancelable(true)
                         .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
@@ -132,18 +129,18 @@ public class recycler_coordinador extends AppCompatActivity {
                     if(salonResponse.getEstado().equals("1")){
                         finish();
                         startActivity(getIntent());
-                        Toast.makeText(recycler_coordinador.this, "Salón Eliminado!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(recycler_salones.this, "Salón Eliminado!", Toast.LENGTH_LONG).show();
                     }else{
-                        Toast.makeText(recycler_coordinador.this, "Ocurrió un error!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(recycler_salones.this, "Ocurrió un error!", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(recycler_coordinador.this, "El servidor no responde correctamente", Toast.LENGTH_LONG).show();
+                    Toast.makeText(recycler_salones.this, "El servidor no responde correctamente", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<SalonResponse> call, Throwable t) {
-                Toast.makeText(recycler_coordinador.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(recycler_salones.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

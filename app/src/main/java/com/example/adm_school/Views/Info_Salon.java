@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.adm_school.Api.ApiClient;
 import com.example.adm_school.Models.ActualizarSalonRequest;
-import com.example.adm_school.Models.Salon;
 import com.example.adm_school.Models.SalonRequest;
 import com.example.adm_school.Models.SalonResponse;
 import com.example.adm_school.R;
@@ -23,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Menu_Coordinador extends AppCompatActivity {
+public class Info_Salon extends AppCompatActivity {
     private EditText nombreSalon;
     private EditText cantidadSalon;
     private EditText estadoSalon;
@@ -32,7 +30,7 @@ public class Menu_Coordinador extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu__coordinador);
+        setContentView(R.layout.activity_info_salon);
 
         nombreSalon = findViewById(R.id.nombreSalon);
         cantidadSalon = findViewById(R.id.cantidadMaxima);
@@ -64,7 +62,7 @@ public class Menu_Coordinador extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(nombreSalon.getText()) || TextUtils.isEmpty(cantidadSalon.getText()) || TextUtils.isEmpty(estadoSalon.getText())){
-                    Toast.makeText(Menu_Coordinador.this, "Debe completar todos los campos", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Info_Salon.this, "Debe completar todos los campos", Toast.LENGTH_LONG).show();
                 }else{
                     if(actIdSalon != 0){
                         actualizarSalon(actIdSalon);
@@ -89,24 +87,24 @@ public class Menu_Coordinador extends AppCompatActivity {
                 if(response.isSuccessful()){
                     final SalonResponse salonResponse = response.body();
                     if(salonResponse.getEstado().equals("1")){
-                        Toast.makeText(Menu_Coordinador.this, "Salón Creado!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Info_Salon.this, "Salón Creado!", Toast.LENGTH_LONG).show();
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startActivity(new Intent(Menu_Coordinador.this, recycler_coordinador.class));
+                                startActivity(new Intent(Info_Salon.this, recycler_salones.class));
                             }
                         }, 400);
                     }else{
-                        Toast.makeText(Menu_Coordinador.this, "La creación falló!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Info_Salon.this, "La creación falló!", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(Menu_Coordinador.this, "El servidor no responde correctamente!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Info_Salon.this, "El servidor no responde correctamente!", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<SalonResponse> call, Throwable t) {
-                Toast.makeText(Menu_Coordinador.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Info_Salon.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -125,24 +123,24 @@ public class Menu_Coordinador extends AppCompatActivity {
                 if(response.isSuccessful()){
                     final SalonResponse salonResponse = response.body();
                     if(salonResponse.getEstado().equals("1")){
-                        Toast.makeText(Menu_Coordinador.this, "Salón Actualizado!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Info_Salon.this, "Salón Actualizado!", Toast.LENGTH_LONG).show();
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                startActivity(new Intent(Menu_Coordinador.this, recycler_coordinador.class));
+                                startActivity(new Intent(Info_Salon.this, recycler_salones.class));
                             }
                         },400);
                     }else{
-                        Toast.makeText(Menu_Coordinador.this, "La actualización falló!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Info_Salon.this, "La actualización falló!", Toast.LENGTH_LONG).show();
                     }
                 }else{
-                    Toast.makeText(Menu_Coordinador.this, "El servidor no responde correctamente!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Info_Salon.this, "El servidor no responde correctamente!", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<SalonResponse> call, Throwable t) {
-                Toast.makeText(Menu_Coordinador.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Info_Salon.this, "Throwable"+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
