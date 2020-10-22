@@ -2,6 +2,8 @@ package com.example.adm_school.Api;
 
 import com.example.adm_school.Models.ActualizarSalonRequest;
 import com.example.adm_school.Models.EliminarSalonRequest;
+import com.example.adm_school.Models.InsertarAlumnoRequest;
+import com.example.adm_school.Models.InsertarProfesorRequest;
 import com.example.adm_school.Models.LoginRequest;
 import com.example.adm_school.Models.LoginResponse;
 import com.example.adm_school.Models.RegisterResponse;
@@ -9,6 +11,7 @@ import com.example.adm_school.Models.RegisterRequest;
 import com.example.adm_school.Models.Salon;
 import com.example.adm_school.Models.SalonRequest;
 import com.example.adm_school.Models.SalonResponse;
+import com.example.adm_school.Models.TipoUsuarioResponse;
 import com.example.adm_school.Models.Usuario;
 
 import java.util.List;
@@ -40,4 +43,10 @@ public interface UserService {
 
     @POST("Actualizar_salon.php")
     Call<SalonResponse> updateSalon(@Body ActualizarSalonRequest actualizarSalonRequest);
+
+    @POST("Insertar_alumno.php")
+    Call<TipoUsuarioResponse> insertarAlumno(@Body InsertarAlumnoRequest insertarAlumnoRequest);
+
+    @POST("Insertar_profesor.php")
+    Call<TipoUsuarioResponse> insertarProfesor(@Body InsertarProfesorRequest insertarProfesorRequest);
 }
