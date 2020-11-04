@@ -14,11 +14,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.adm_school.Adapter.ListaSalones;
 import com.example.adm_school.Api.ApiClient;
+import com.example.adm_school.Api.UserService;
 import com.example.adm_school.Models.InsertarAlumnoRequest;
 import com.example.adm_school.Models.InsertarProfesorRequest;
+import com.example.adm_school.Models.Salon;
 import com.example.adm_school.Models.TipoUsuarioResponse;
 import com.example.adm_school.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,21 +38,57 @@ public class Info_Usuario extends AppCompatActivity {
     private Spinner spinner1;
     private EditText txtExtra;
     private String tipoUsuario;
+    private Spinner spinnerSalones;
+
+    UserService userService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_usuario);
-
+        /*
         nombre = findViewById(R.id.nombreUsuario);
         correo = findViewById(R.id.correo);
         password = findViewById(R.id.password);
+         */
         btnAsignarUsuario = findViewById(R.id.btnAsignarUsuario);
         spinner1 = findViewById(R.id.spinnerRol);
         txtExtra = findViewById(R.id.datoExtra);
+        spinnerSalones = findViewById(R.id.spinnerSalones);
+
 
         //CREANDO EL ARRAY DEL SPINNER
         String [] opciones = {"Profesor","Alumno"};
+
+        final List<String> listaSalones1 = new ArrayList<>();
+
+        final ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaSalones1);
+        Call<List<ListaSalones>> call = ApiClient.getUserService().listarSalon();
+        call.enqueue(new Callback<List<ListaSalones>>() {
+            @Override
+            public void onResponse(Call<List<ListaSalones>> call, Response<List<ListaSalones>> response) {
+                if(response.isSuccessful()){
+                    for(ListaSalones post : response.body()){
+                        String nombre = post.getNombreSalon();
+                        listaSalones1.add(nombre);
+
+                        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spinnerSalones.setAdapter(adapter1);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ListaSalones>> call, Throwable t) {
+
+            }
+
+        });
+
+
+
+
+
 
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
         spinner1.setAdapter(adapter);
@@ -74,7 +116,7 @@ public class Info_Usuario extends AppCompatActivity {
         final String nombre = getIntent().getStringExtra("nombre");
         final String correo = getIntent().getStringExtra("correo");
         final String password = getIntent().getStringExtra("password");
-
+        /*
         if (nombre != "") {
             this.nombre.setText(nombre);
         }
@@ -86,6 +128,7 @@ public class Info_Usuario extends AppCompatActivity {
         if (password != "") {
             this.password.setText(password);
         }
+        */
 
         btnAsignarUsuario.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.example.adm_school.Api;
 
+import com.example.adm_school.Adapter.ListaSalones;
 import com.example.adm_school.Models.ActualizarSalonRequest;
 import com.example.adm_school.Models.EliminarSalonRequest;
 import com.example.adm_school.Models.InsertarAlumnoRequest;
@@ -49,4 +50,7 @@ public interface UserService {
 
     @POST("Insertar_profesor.php")
     Call<TipoUsuarioResponse> insertarProfesor(@Body InsertarProfesorRequest insertarProfesorRequest);
+
+    @GET("Obtener_salones.php")
+    Call<List<ListaSalones>> listarSalon();
 }
