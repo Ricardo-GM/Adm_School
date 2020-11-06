@@ -3,7 +3,7 @@ package com.example.adm_school.Models;
 public class InsertarAlumnoRequest {
     private int id_usuario;
     private String apoderado;
-    private int id_salon;
+    private String nombreSalon;
 
     public int getId_usuario() {
         return id_usuario;
@@ -21,11 +21,11 @@ public class InsertarAlumnoRequest {
         this.apoderado = apoderado;
     }
 
-    public int getId_salon() {
-        return id_salon;
+    public String getNombreSalon() {
+        return nombreSalon;
     }
 
-    public void setId_salon(int id_salon) {
-        this.id_salon = id_salon;
+    public void setNombreSalon(String nombreSalon) {
+        this.nombreSalon = nombreSalon;
     }
 }

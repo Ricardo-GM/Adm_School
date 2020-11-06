@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -39,6 +40,8 @@ public class Info_Usuario extends AppCompatActivity {
     private EditText txtExtra;
     private String tipoUsuario;
     private Spinner spinnerSalones;
+    private LinearLayout contenedorSpinnerSalones;
+    private String nombreSalon;
 
     UserService userService;
 
@@ -55,6 +58,9 @@ public class Info_Usuario extends AppCompatActivity {
         spinner1 = findViewById(R.id.spinnerRol);
         txtExtra = findViewById(R.id.datoExtra);
         spinnerSalones = findViewById(R.id.spinnerSalones);
+        contenedorSpinnerSalones = findViewById(R.id.contenedorSpinnerSalones);
+
+        contenedorSpinnerSalones.setVisibility(View.GONE);
 
 
         //CREANDO EL ARRAY DEL SPINNER
@@ -80,15 +86,20 @@ public class Info_Usuario extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<ListaSalones>> call, Throwable t) {
-
             }
-
         });
 
+        spinnerSalones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                nombreSalon = spinnerSalones.getSelectedItem().toString();
+            }
 
-
-
-
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                txtExtra.setHint("Seleccione un Item en el Spinner");
+            }
+        });
 
         ArrayAdapter <String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,opciones);
         spinner1.setAdapter(adapter);
@@ -103,6 +114,7 @@ public class Info_Usuario extends AppCompatActivity {
                 }else{
                     txtExtra.setHint("Inserte nombre del Apoderado");
                     tipoUsuario = "alumno";
+                    contenedorSpinnerSalones.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -186,6 +198,7 @@ public class Info_Usuario extends AppCompatActivity {
         InsertarAlumnoRequest insertarAlumnoRequest = new InsertarAlumnoRequest();
         insertarAlumnoRequest.setId_usuario(id);
         insertarAlumnoRequest.setApoderado(txtExtra.getText().toString());
+        insertarAlumnoRequest.setNombreSalon(nombreSalon);
 
         Call<TipoUsuarioResponse> tipoUsuarioResponseCall = ApiClient.getUserService().insertarAlumno(insertarAlumnoRequest);
         tipoUsuarioResponseCall.enqueue(new Callback<TipoUsuarioResponse>() {
