@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.Info_Clase"></activity>
+        <activity android:name=".Views.Info_Clase"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
         <activity android:name=".Views.recycler_clases" />
         <activity
             android:name=".Views.Info_Curso"

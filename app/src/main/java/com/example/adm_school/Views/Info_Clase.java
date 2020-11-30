@@ -2,8 +2,12 @@ package com.example.adm_school.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.TimePickerDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,15 +15,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
-
+import java.lang.Object;
 import com.example.adm_school.Adapter.ListaSalones;
 import com.example.adm_school.Api.ApiClient;
 import com.example.adm_school.Models.Curso;
 import com.example.adm_school.Models.Profesores;
 import com.example.adm_school.R;
 
+import org.w3c.dom.Text;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,6 +49,11 @@ public class Info_Clase extends AppCompatActivity {
     private String nombreCurso;
     private String nombreProfesor;
     private String dia;
+    //Lo que agregre
+    private TextView txtTiempoInicio;
+    private TextView getTxtTiempoFinal;
+    int tmHour1, tmMinute1;
+    int tmHour2, tmMinute2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +66,63 @@ public class Info_Clase extends AppCompatActivity {
         spinnerProfesores = findViewById(R.id.spinnerProfesores);
         spinnerDias = findViewById(R.id.spinnerDias);
         btnCrearClase = findViewById(R.id.btnCrearClase);
+
+        txtTiempoInicio = findViewById(R.id.tiempo_inicio);
+        getTxtTiempoFinal = findViewById(R.id.tiempo_final);
+
+        txtTiempoInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        Info_Clase.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                //inicializamos las variables
+                                tmHour1 = hourOfDay;
+                                tmMinute1 = minute ;
+                                //Inicializamos el calendario
+                                Calendar calendar = Calendar.getInstance();
+                                //Set hora y Minutos
+                                calendar.set(0,0,0,tmHour1,tmMinute1);
+                                //Set selected tiempo dentro del text view
+                                txtTiempoInicio.setText(DateFormat.format("hh:mm aa", calendar));
+                            }
+                        }, 12,0,false
+                );
+                //Displayed previous selected time
+                timePickerDialog.updateTime(tmHour1,tmMinute1);
+                //show dialog
+                timePickerDialog.show();
+            }
+        });
+        getTxtTiempoFinal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(
+                        Info_Clase.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                //inicializamos las variables
+                                tmHour2 = hourOfDay;
+                                tmMinute2 = minute ;
+                                //Inicializamos el calendario
+                                Calendar calendar = Calendar.getInstance();
+                                //Set hora y Minutos
+                                calendar.set(0,0,0,tmHour2,tmMinute2);
+                                //Set selected tiempo dentro del text view
+                                getTxtTiempoFinal.setText(DateFormat.format("hh:mm aa", calendar));
+                            }
+                        }, 12,0,false
+                );
+                //Displayed previous selected time
+                timePickerDialog.updateTime(tmHour2,tmMinute2);
+                //show dialog
+                timePickerDialog.show();
+            }
+        });
+
 
         final List<String> listaSalones1 = new ArrayList<>();
         final List<String> listaCursos = new ArrayList<>();
