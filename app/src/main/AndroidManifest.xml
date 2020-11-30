@@ -11,10 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Views.Info_Curso"></activity>
-        <activity android:name=".Views.recycler_cursos" />
-        <activity android:name=".Views.Info_Usuario" />
-        <activity android:name=".Views.recycler_usuarios" />
+        <activity android:name=".Views.Info_Clase"></activity>
+        <activity android:name=".Views.recycler_clases" />
+        <activity
+            android:name=".Views.Info_Curso"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Views.recycler_cursos"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Views.Info_Usuario"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Views.recycler_usuarios"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Views.menu_principal_coordinador"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

@@ -3,15 +3,19 @@ package com.example.adm_school.Api;
 import com.example.adm_school.Adapter.ListaSalones;
 import com.example.adm_school.Models.ActualizarCursoRequest;
 import com.example.adm_school.Models.ActualizarSalonRequest;
+import com.example.adm_school.Models.Clase;
+import com.example.adm_school.Models.ClaseResponse;
 import com.example.adm_school.Models.Curso;
 import com.example.adm_school.Models.CursoRequest;
 import com.example.adm_school.Models.CursoResponse;
+import com.example.adm_school.Models.EliminarClaseRequest;
 import com.example.adm_school.Models.EliminarCursoRequest;
 import com.example.adm_school.Models.EliminarSalonRequest;
 import com.example.adm_school.Models.InsertarAlumnoRequest;
 import com.example.adm_school.Models.InsertarProfesorRequest;
 import com.example.adm_school.Models.LoginRequest;
 import com.example.adm_school.Models.LoginResponse;
+import com.example.adm_school.Models.Profesores;
 import com.example.adm_school.Models.RegisterResponse;
 import com.example.adm_school.Models.RegisterRequest;
 import com.example.adm_school.Models.Salon;
@@ -70,4 +74,13 @@ public interface UserService {
 
     @GET("Obtener_salones.php")
     Call<List<ListaSalones>> listarSalon();
+
+    @GET("Obtener_clases.php")
+    Call<List<Clase>> listClases();
+
+    @GET("Obtener_profesores.php")
+    Call<List<Profesores>> listProfesores();
+
+    @POST("Eliminar_clase.php")
+    Call<ClaseResponse> deleteClase(@Body EliminarClaseRequest eliminarClaseRequest);
 }

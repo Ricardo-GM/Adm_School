@@ -12,8 +12,8 @@ import com.github.florent37.shapeofview.shapes.RoundRectView;
 public class menu_principal_coordinador extends AppCompatActivity {
     private RoundRectView btnSalones;
     private RoundRectView btnUsuarios;
-    private RoundRectView btnClases;
     private RoundRectView btnCursos;
+    private RoundRectView btnClases;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,14 @@ public class menu_principal_coordinador extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(menu_principal_coordinador.this, recycler_cursos.class));
+            }
+        });
+
+        btnClases = findViewById(R.id.gestion_clases);
+        btnClases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(menu_principal_coordinador.this, recycler_clases.class));
             }
         });
 
