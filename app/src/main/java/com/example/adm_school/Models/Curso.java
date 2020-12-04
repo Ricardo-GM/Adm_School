@@ -1,16 +1,16 @@
 package com.example.adm_school.Models;
 
 public class Curso {
-    private int id_curso;
+    private String id_curso;
     private String nombreCurso;
     private String descripcionCurso;
     private String estado;
 
-    public int getId_curso() {
+    public String getId_curso() {
         return id_curso;
     }
 
-    public void setId_curso(int id_curso) {
+    public void setId_curso(String id_curso) {
         this.id_curso = id_curso;
     }
 

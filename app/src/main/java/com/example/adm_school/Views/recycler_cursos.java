@@ -87,7 +87,7 @@ public class recycler_cursos extends AppCompatActivity {
                         .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                eliminar(curso.getId_curso());
+                                eliminar(Integer.parseInt(curso.getId_curso()));
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

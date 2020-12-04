@@ -1,9 +1,11 @@
 package com.example.adm_school.Api;
 
 import com.example.adm_school.Adapter.ListaSalones;
+import com.example.adm_school.Models.ActualizarClaseRequest;
 import com.example.adm_school.Models.ActualizarCursoRequest;
 import com.example.adm_school.Models.ActualizarSalonRequest;
 import com.example.adm_school.Models.Clase;
+import com.example.adm_school.Models.ClaseRequest;
 import com.example.adm_school.Models.ClaseResponse;
 import com.example.adm_school.Models.Curso;
 import com.example.adm_school.Models.CursoRequest;
@@ -83,4 +85,10 @@ public interface UserService {
 
     @POST("Eliminar_clase.php")
     Call<ClaseResponse> deleteClase(@Body EliminarClaseRequest eliminarClaseRequest);
+
+    @POST("Insertar_clase.php")
+    Call<ClaseResponse> createClase(@Body ClaseRequest claseRequest);
+
+    @POST("Actualizar_clase.php")
+    Call<ClaseResponse> updateClase(@Body ActualizarClaseRequest actualizarClaseRequest);
 }
